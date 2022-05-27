@@ -1,3 +1,4 @@
+
 const Discord = require("Discord.js");
 
 require("dotenv").config();
@@ -24,6 +25,7 @@ client.on("messageCreate", (Message) => {
 
 const welcomeChannelId = "978465393175830568"
 
+
 client.on("guildMemberAdd", async (member) =>{
     const img = await generateImage(member)
     member.guild.channels.cache.get(welcomeChannelId).send({
@@ -32,5 +34,6 @@ client.on("guildMemberAdd", async (member) =>{
     })
         
 });
+
 
 client.login(process.env.TOKEN);
