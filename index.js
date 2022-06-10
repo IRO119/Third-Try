@@ -21,7 +21,16 @@ client.on("messageCreate", (Message) => {
     if(Message.content == "hi"){
         Message.reply("Hello world!");
     }
-});
+
+    var orgMessage = Message.content
+    var m = Message.content.toLowerCase()
+
+    if(m.length >= 2 && m.substr(-2) == "er"){
+        orgMessage = orgMessage.substr(0, orgMessage.length - 2)
+        Message.reply(`Woooaaah buddy. No hard r's. Don't you mean: ${orgMessage}a`) 
+    }
+}); 
+
 
 const welcomeChannelId = "978465393175830568"
 
