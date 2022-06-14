@@ -19,7 +19,7 @@ client.on("ready", () => {
 
 client.on("messageCreate", (Message) => {
     if(Message.content == "hi"){
-        Message.reply("Hello world!");
+        Message.reply(`Hello ${Message.author}`);
     }
 
     var orgMessage = Message.content
