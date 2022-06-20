@@ -9,7 +9,19 @@ const durations = [
 ]
 
 const run = async(client, interaction) => {
+    let member = interaction.options.getMember("user")
+    let duration = interaction.options.getNumber("duration")
+    let reason = interaction.options.getString("reason") || "No reason given"
 
+    if(!member) return interaction.reply("Invalid member")
+
+    try{
+        await member.timeout(duration, reason)
+        return interaction.reply(`${member.user.tag} has been timed out for ${durations.find(d => duration === d.value)?.name} with a reason of ${reason}`)
+    }catch(err){
+        console.log(err)
+        return interaction.reply(`Failed to timeout ${memmber.user.tag}`)
+    }
 }
 
 module.exports = {
