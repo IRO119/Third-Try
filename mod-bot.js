@@ -17,7 +17,9 @@ client.on("ready", () => {
 
 client.slashCommands = new Discord.Collection()
 
-client.loadSlashCommants = (bot, reload) => require("./handlers/slashCommands")
-client.loadSlashCommants(bot, false)
+client.loadSlashCommands = (bot, reload) => require("./handlers/slashCommands")(bot, reload)
+client.loadSlashCommands(bot, false)
+
+
 
 client.login(process.env.SECOND_TOKEN)
